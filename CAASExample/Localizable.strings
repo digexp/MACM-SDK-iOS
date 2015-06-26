@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  CAASExample
+
+  Created by slizeray on 02/03/15.
+  Copyright (c) 2015 LIZERAY. All rights reserved.
+*/
+
+
+"OK" = "OK";
+"Cancel" = "Cancel";
+
+"SignIn.Alert.Title" = "Sign In Error";
+"SignIn.Alert.WrongCredentials" = "Wrong Credentials";
+
+"Settings.Header.SignOut" = "CAAS";
+
+"Settings.SignOutAlert.Title" = "CAAS";
+"Settings.SignOutAlert.Message" = "Are you sure you want to sign out of CAAS?";
+"Settings.SignOutAlert.SignOut" = "Sign Out";
+
+"NetworkError.Alert.Title" = "Network Error";

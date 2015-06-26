@@ -1,0 +1,44 @@
+{
+    "header": {
+        "elementTypeIndex": {
+            "author": 9,
+            "cover": 10,
+            "price": 12,
+            "PDF": 14,
+            "publish_date": 13,
+            "isbn": 11
+        },
+        "propertyIndex": {
+            "id": 0,
+            "title": 1,
+            "keywords": 2
+        },
+        "elementIndex": {
+            "author": 3,
+            "cover": 4,
+            "price": 6,
+            "PDF": 8,
+            "publish_date": 7,
+            "isbn": 5
+        }
+    },
+    "values": [
+               [
+                "c6410aca-4944-4751-9a1a-053994e5c9cb",
+                "A Novel of the Black Dagger Brotherhood",
+                "bestseller",
+                "J.R. Ward",
+                "\/wps\/wcm\/myconnect\/d4fa62d9-7267-4b9d-a84e-f7db92f74e72\/The+Shadows.jpg?MOD=AJPERES",
+                "0451417070",
+                28.99,
+                "2015-03-21T04:00:00.000Z",
+                null,
+                1,
+                3,
+                1,
+                5,
+                4,
+                0
+                ]
+               ]
+}

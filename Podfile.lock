@@ -1,0 +1,20 @@
+PODS:
+  - CAASObjC (1.0.0)
+  - MBProgressHUD (0.9.1)
+  - Shimmer (1.0.2)
+
+DEPENDENCIES:
+  - CAASObjC (from `.`)
+  - MBProgressHUD
+  - Shimmer
+
+EXTERNAL SOURCES:
+  CAASObjC:
+    :path: .
+
+SPEC CHECKSUMS:
+  CAASObjC: 32e632696238b77e5e480823b092111f5888bf1e
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  Shimmer: c5374be1c2b0c9e292fb05b339a513cf291cac86
+
+COCOAPODS: 0.37.2
