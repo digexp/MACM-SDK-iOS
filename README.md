@@ -9,17 +9,39 @@ CAASObjC is an API written in Objective-C to access a MACM (Mobile Application C
 
 ## Using in your project
 
-CAASObjC is available through [CocoaPods](http://cocoapods.org), to install
-it add the following line to your Podfile:
+You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:
+```
+sudo gem install cocoapods 
+```
+
+You then need to create a `Podfile` in the directory of your project file. Run the command:
+```
+pod init
+```
+
+To install CAASObjC add the following line to your Podfile:
 
 ```ruby
-pod "CAASObjC"
+pod 'CAASObjC', :git => 'https://github.com/digexp/MACM-SDK-iOS.git', :branch => 'xcode7'
 ```
 
 If you want to use CAASObjC in a Swift application you must add the following line in your Podfile:
 
 ```ruby
 use_frameworks!
+```
+
+A typical pod file looks like this:
+
+```ruby
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'TestCAAS' do
+pod 'CAASObjC', :git => 'https://github.com/digexp/MACM-SDK-iOS.git'
+end
 ```
 
 ## Usage
