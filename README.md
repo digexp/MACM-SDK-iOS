@@ -5,7 +5,7 @@ CAASObjC is an API written in Objective-C to access a MACM (Mobile Application C
 ## Requirements
 
 - iOS 8.0+
-- XCode 6.3
+- XCode 7.0 Beta 2
 
 ## Using in your project
 
