@@ -49,7 +49,7 @@ class CoverController: UIViewController {
             let imageURL = NSURL(string: coverURL, relativeToURL: caasService.baseURL)
             
             // check of the image is already in the cache
-            if let image = imageCache?.objectForKey(imageURL!.absoluteString!) as? UIImage {
+            if let image = imageCache?.objectForKey(imageURL!.absoluteString) as? UIImage {
                 self.cover.image = image
                 self.cover.setNeedsLayout()
                 self.cover.layoutIfNeeded()
@@ -63,18 +63,18 @@ class CoverController: UIViewController {
                     if let image = imageResult.image {
                         self.cover.image = image
                         self.cover.hidden = false
-                        imageCache?.setObject(image, forKey: imageURL!.absoluteString!)
+                        imageCache?.setObject(image, forKey: imageURL!.absoluteString)
                     } else {
                         if let error = imageResult.error {
-                            println(imageResult.error)
+                            print(error)
                         }
                         if imageResult.httpStatusCode > 0 {
-                            println(imageResult.httpStatusCode)
+                            print(imageResult.httpStatusCode)
                         }
                         
                     }
                 }
-                let imageRequestResult = caasService.executeRequest(imageRequest)
+                caasService.executeRequest(imageRequest)
             }
         } else {
             self.cover.hidden = true

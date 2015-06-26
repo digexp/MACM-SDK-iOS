@@ -138,12 +138,12 @@ extension SignInController: UITextFieldDelegate {
     
     func textFieldShouldReturn(textField:UITextField) -> Bool {
         
-        if count(self.username.text) == 0 {
+        if self.username.text?.isEmpty ?? true {
             self.username.becomeFirstResponder()
             return false
         }
         
-        if count(self.password.text) == 0 {
+        if self.password.text?.isEmpty ?? true {
             self.password.becomeFirstResponder()
             return false
         }
@@ -160,7 +160,7 @@ extension SignInController: UITextFieldDelegate {
     
     func doSignIn() {
         
-        if count(self.username.text) == 0 || count(self.password.text) == 0 {
+        if (self.username.text?.isEmpty ?? true) || (self.password.text?.isEmpty ?? true) {
             return
         }
         
@@ -191,7 +191,7 @@ extension SignInController: UITextFieldDelegate {
     func checkUser() {
         // Override point for customization after application launch.
         
-        caasService.signIn(self.username.text, password: self.password.text) { (error, httpStatusCode) -> Void in
+        caasService.signIn(self.username.text!, password: self.password.text!) { (error, httpStatusCode) -> Void in
             self.fbShimmeringView.shimmering = false
             
             
@@ -202,10 +202,10 @@ extension SignInController: UITextFieldDelegate {
                 if error != nil && error!.code == NSURLErrorCancelled {
                     message = NSLocalizedString("SignIn.Alert.WrongCredentials",comment:"Wrong credentials")
                 } else if error != nil {
-                    println("error \(error)")
+                    print("error \(error)")
                     message = error!.localizedDescription
                 } else {
-                    println("HTTPS Status \(httpStatusCode)")
+                    print("HTTPS Status \(httpStatusCode)")
                     message = NSHTTPURLResponse.localizedStringForStatusCode(httpStatusCode)
                 }
                 

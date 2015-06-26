@@ -39,13 +39,13 @@ class PageViewController: UIPageViewController {
         // Do any additional setup after loading the view.
         
         
-        if let cover = book.cover {
+        if let _ = book.cover {
             self.coverVC = self.storyboard?.instantiateViewControllerWithIdentifier("CoverIDVC") as! CoverController
             self.coverVC.book = book
             self.children.append(self.coverVC)
         }
         
-        if let pdf = book.pdf {
+        if let _ = book.pdf {
             self.pdfVC = self.storyboard?.instantiateViewControllerWithIdentifier("PDFIDVC") as! PDFController
             self.pdfVC.book = book
             self.children.append(self.pdfVC)
@@ -78,8 +78,8 @@ extension PageViewController:UIPageViewControllerDataSource {
     
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?
     {
-        if let index = find(children,viewController) where index > 0 {
-            return children[index-1]
+        if let index = self.children.indexOf(viewController) where index > 0 {
+            return self.children[index-1]
         } else {
             return nil
         }
@@ -87,8 +87,8 @@ extension PageViewController:UIPageViewControllerDataSource {
     }
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
-        if let index = find(children,viewController) where index < children.count - 1 {
-            return children[index+1]
+        if let index = self.children.indexOf(viewController) where index < children.count - 1 {
+            return self.children[index+1]
         } else {
             return nil
         }

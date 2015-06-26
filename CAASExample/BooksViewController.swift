@@ -39,9 +39,11 @@ class BooksViewController: UITableViewController {
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
-        var error:NSError?
-        if !frc.performFetch(&error) {
-            assertionFailure("perform fetch error \(error)")
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Core Data Error \(error)")
         }
         
         return frc
@@ -90,7 +92,7 @@ class BooksViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        let sectionInfo = self.fetchedResultController.sections![section] as! NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultController.sections![section] as NSFetchedResultsSectionInfo
         
         return sectionInfo.numberOfObjects
     }
@@ -181,7 +183,7 @@ class BooksViewController: UITableViewController {
             } else if let contentItems = requestResult.contentItems as? [CAASContentItem] {
                 dataController.seedDatabaseWithBooks(contentItems)
                 if requestResult.morePages {
-                    self.getPage(pageNumber: pageNumber + 1)
+                    self.getPage(pageNumber + 1)
                     return
                 }
                 self.refreshControl?.endRefreshing()
@@ -212,7 +214,7 @@ extension BooksViewController: NSFetchedResultsControllerDelegate {
         self.tableView.beginUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         switch (type) {
         case .Insert:
             self.tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation:.Automatic)
@@ -250,12 +252,12 @@ extension BooksViewController: NSFetchedResultsControllerDelegate {
 
 extension BooksViewController : UISplitViewControllerDelegate {
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         
         return collapseDetailViewController
     }
     
-    func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController!) -> UIViewController? {
+    func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController)-> UIViewController? {
         if let nc = primaryViewController as? UINavigationController{
             for vc in nc.viewControllers {
                 if let _ = vc.containedBook(){

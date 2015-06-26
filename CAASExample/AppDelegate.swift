@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !caasService!.isUserAlreadySignedIn() {
             let sb = UIStoryboard(name:"Main",bundle:nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("CAASSignInID") as! UIViewController!
+            let vc = sb.instantiateViewControllerWithIdentifier("CAASSignInID") as UIViewController!
             self.window!.rootViewController = vc
         }
         
@@ -117,11 +117,11 @@ extension AppDelegate {
         let window = UIApplication.sharedApplication().keyWindow
         
         let sb = UIStoryboard(name:"Main",bundle:nil)
-        let vc = sb.instantiateInitialViewController()as! UIViewController
+        let vc = sb.instantiateInitialViewController()!
         
         UIView.transitionWithView(window!, duration: 0.5, options: .TransitionCrossDissolve, animations: { () -> Void in
             UIView.performWithoutAnimation({ () -> Void in
-                window!.rootViewController = vc;
+                window!.rootViewController = vc
             })
             }, completion: nil)
         
@@ -137,10 +137,10 @@ extension AppDelegate {
             if error != nil && error!.code == NSURLErrorCancelled {
                 message = NSLocalizedString("SignIn.Alert.WrongCredentials",comment:"Wrong credentials")
             } else if error != nil {
-                println("error \(error)")
+                print("error \(error)")
                 message = error!.localizedDescription
             } else {
-                println("HTTPS Status \(httpStatusCode)")
+                print("HTTPS Status \(httpStatusCode)")
                 message = NSHTTPURLResponse.localizedStringForStatusCode(httpStatusCode)
             }
         
@@ -162,10 +162,10 @@ extension AppDelegate {
             let message:String
             
             if error != nil {
-                println("error \(error)")
+                print("error \(error)")
                 message = error!.localizedDescription
             } else {
-                println("HTTPS Status \(httpStatusCode)")
+                print("HTTPS Status \(httpStatusCode)")
                 message = NSHTTPURLResponse.localizedStringForStatusCode(httpStatusCode)
             }
             

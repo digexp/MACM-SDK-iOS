@@ -131,7 +131,7 @@ class MoreController: UITableViewController {
             caasService.signOut()
             
             let sb = UIStoryboard(name:"Main",bundle:nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("CAASSignInID") as! UIViewController
+            let vc = sb.instantiateViewControllerWithIdentifier("CAASSignInID")
             let window = UIApplication.sharedApplication().keyWindow
             
             UIView.transitionWithView(window!, duration: 0.5, options: .TransitionCrossDissolve, animations: { () -> Void in
