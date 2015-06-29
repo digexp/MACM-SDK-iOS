@@ -19,6 +19,7 @@
 		7D26C10C1A97847B000891E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7D26C10B1A97847B000891E8 /* Images.xcassets */; };
 		7D26C10F1A97847B000891E8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D26C10D1A97847B000891E8 /* LaunchScreen.xib */; };
 		7D26C11B1A97847B000891E8 /* CAASExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D26C11A1A97847B000891E8 /* CAASExampleTests.swift */; };
+		7D65B2A91B41495A00FB389F /* SegHandlerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D65B2A81B41495A00FB389F /* SegHandlerType.swift */; };
 		7D97A6BF1B00FC010005487B /* PDFController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D97A6BE1B00FC010005487B /* PDFController.swift */; };
 		7D9DDC401AA9A2B900D6238B /* HairLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9DDC3E1AA9A2B900D6238B /* HairLine.swift */; };
 		7D9DDC411AA9A2B900D6238B /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D9DDC3F1AA9A2B900D6238B /* SignInController.swift */; };
@@ -99,6 +100,7 @@
 		7D26C1141A97847B000891E8 /* CAASExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CAASExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D26C1191A97847B000891E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7D26C11A1A97847B000891E8 /* CAASExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CAASExampleTests.swift; sourceTree = "<group>"; };
+		7D65B2A81B41495A00FB389F /* SegHandlerType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SegHandlerType.swift; path = CAASExample/SegHandlerType.swift; sourceTree = "<group>"; };
 		7D97A6BE1B00FC010005487B /* PDFController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFController.swift; path = CAASExample/PDFController.swift; sourceTree = "<group>"; };
 		7D9DDC3E1AA9A2B900D6238B /* HairLine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HairLine.swift; path = CAASExample/HairLine.swift; sourceTree = "<group>"; };
 		7D9DDC3F1AA9A2B900D6238B /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignInController.swift; path = CAASExample/SignInController.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 			children = (
 				7DAADA601ABC8C1100F0BDCD /* EmptyViewController.swift */,
 				7D9F563B1AB9BCB500A95309 /* Utils.swift */,
+				7D65B2A81B41495A00FB389F /* SegHandlerType.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -487,6 +490,7 @@
 				7D04A3F71AF9017B007BC733 /* BookViewController.swift in Sources */,
 				7D9F56401AB9BCEF00A95309 /* SignOutCell.swift in Sources */,
 				7DDA0D431AB0EE4D00B0F5E1 /* DataController.swift in Sources */,
+				7D65B2A91B41495A00FB389F /* SegHandlerType.swift in Sources */,
 				7D9DDC411AA9A2B900D6238B /* SignInController.swift in Sources */,
 				7D26C1051A97847B000891E8 /* AppDelegate.swift in Sources */,
 				7DAADAC71ABEF03900F0BDCD /* DataController+Helpers.swift in Sources */,

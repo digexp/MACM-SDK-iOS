@@ -116,7 +116,7 @@ class BooksViewController: UITableViewController {
         
         let book: AnyObject = self.fetchedResultController.objectAtIndexPath(indexPath)
         
-        self.performSegueWithIdentifier("ShowDetailBookSegID", sender: book)
+        self.performSegueWithIdentifier(.ShowDetailBook, sender: book)
         collapseDetailViewController = false
     }
     
@@ -128,9 +128,13 @@ class BooksViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let nc = segue.destinationViewController as! UINavigationController
-        let bookVC = nc.topViewController as! BookViewController
-        bookVC.book = sender as? Book
+        
+        switch segueIdentifierForSegue(segue) {
+        case .ShowDetailBook:
+            let nc = segue.destinationViewController as! UINavigationController
+            let bookVC = nc.topViewController as! BookViewController
+            bookVC.book = sender as? Book
+        }
         
     }
     
@@ -262,4 +266,11 @@ extension UINavigationController {
     }
 }
 
-
+extension BooksViewController:SegueHandlerType {
+        
+    enum SegueIdentifier: String {
+        case ShowDetailBook = "ShowDetailBookSegID"
+    }
+        
+    
+}
