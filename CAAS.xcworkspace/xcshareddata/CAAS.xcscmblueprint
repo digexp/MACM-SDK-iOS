@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "F2880423567D57D4ED1E9145DFC8D3484E3CBEB4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "9696D0F4D62639AACF91B202970AC6131CB2AD3F" : 0,
+    "F2880423567D57D4ED1E9145DFC8D3484E3CBEB4" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "32FAF976-DC4B-498F-A058-E1984D194B56",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9696D0F4D62639AACF91B202970AC6131CB2AD3F" : "CAAS",
+    "F2880423567D57D4ED1E9145DFC8D3484E3CBEB4" : "MACM-SDK-iOS\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "CAAS",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 203,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "CAAS.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.rtp.raleigh.ibm.com:caas\/ios_sdk.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9696D0F4D62639AACF91B202970AC6131CB2AD3F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/digexp\/MACM-SDK-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F2880423567D57D4ED1E9145DFC8D3484E3CBEB4"
+    }
+  ]
+}
