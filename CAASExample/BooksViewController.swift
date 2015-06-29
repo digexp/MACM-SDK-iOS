@@ -143,35 +143,9 @@ class BooksViewController: UITableViewController {
         
         self.refreshControl?.beginRefreshing()
         
-        /*
-        dataController.emptyDatabase()
-        caasService.cancelAllPendingRequests()
-        let contentItemsRequest = CAASContentItemsRequest(contentPath: wcmPath, completionBlock: { (requestResult) -> Void in
-        if (requestResult.error != nil) || (requestResult.httpStatusCode != 200) {
-        self.refreshControl?.endRefreshing()
-        AppDelegate.presentNetworkError(requestResult.error,httpStatusCode: requestResult.httpStatusCode)
-        } else if let contentItems = requestResult.contentItems as? [CAASContentItem] {
-        dataController.seedDatabaseWithBooks(contentItems)
-        self.refreshControl?.endRefreshing()
-        }
-        
-        })
-        */
-        
         dataController.emptyDatabase()
         caasService.cancelAllPendingRequests()
         self.getPage()
-        /*
-        caasService.silentSignInWithCompletionHandler { (error, httpStatusCode) -> Void in
-            if error != nil || !(200..<300).contains(httpStatusCode){
-                AppDelegate.presentSignInError(error, httpStatusCode: httpStatusCode)
-                self.refreshControl?.endRefreshing()
-            } else {
-
-                self.getPage()
-            }
-        }
-        */
         
     }
     
@@ -180,7 +154,7 @@ class BooksViewController: UITableViewController {
             if (requestResult.error != nil) || (requestResult.httpStatusCode != 200) {
                 self.refreshControl?.endRefreshing()
                 AppDelegate.presentNetworkError(requestResult.error,httpStatusCode: requestResult.httpStatusCode)
-            } else if let contentItems = requestResult.contentItems as? [CAASContentItem] {
+            } else if let contentItems = requestResult.contentItems  {
                 dataController.seedDatabaseWithBooks(contentItems)
                 if requestResult.morePages {
                     self.getPage(pageNumber + 1)

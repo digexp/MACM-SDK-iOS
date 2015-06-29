@@ -37,7 +37,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The content items of the list
  */
-@property (readonly,nullable) NSArray *contentItems;
+@property (readonly,nullable) NSArray<CAASContentItem *> *contentItems;
 
 /**
  Returns `true` when there are more page after this page

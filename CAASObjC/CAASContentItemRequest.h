@@ -70,12 +70,12 @@ typedef void (^CAASContentItemCompletionBlock)(CAASContentItemResult *requestRes
 /**
  Specifies a collection of element names that should be fetched. If this collection is empty, all properties will be retrieved
  */
-@property (nonatomic, strong,nullable) NSArray * elements;
+@property (nonatomic, strong,nullable) NSArray<NSString *> * elements;
 
 /**
  Specifies a collection of property names that should be fetched. If this collection is empty, all properties will be retrieved
  */
-@property (nonatomic, strong,nullable) NSArray * properties;
+@property (nonatomic, strong,nullable) NSArray<NSString *> * properties;
 
 /**
  Sets/Returns a specific project name. Setting the project name allows to retrieve data for draft content.

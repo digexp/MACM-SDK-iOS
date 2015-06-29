@@ -29,7 +29,7 @@
 
 @implementation CAASContentItemsResult
 
-- (NSArray *) contentItems {
+- (NSArray<CAASContentItem *> *) contentItems {
     
     NSDictionary *json = self.json;
     
