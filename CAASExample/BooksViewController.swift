@@ -24,7 +24,7 @@ import UIKit
 import CoreData
 import CAASObjC
 
-private let wcmPath = "OOTB Content/Content Types/Book"
+private let wcmPath = "MACM Default Application/Content Types/Book"
 
 class BooksViewController: UITableViewController {
     

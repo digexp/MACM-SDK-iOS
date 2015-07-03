@@ -51,24 +51,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dataController = DataController(modelName: "CAASExampleModel")
         DataController.removeStore()
         
-        // Login as: virtuser / wpsadm1N
-        //caasService = CAASService(baseURL: NSURL(string: "https://macm-dev.demoxdx.com:10042")!)
-        //caasService.allowUntrustedCertificates = true
-        //http://macm-dev.demoxdx.com:10039/wps/portal
-        
         
         //http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039/wps/myportal
         
-        caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
+        //caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
         
-        /*var password = InternetPassword(url: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!)
-        password.username = "foo"
-        password.password = "bar"
-        password.writeToKeyChain()
+        //http://macm-master-cf06.rtp.raleigh.ibm.com:10039/wps/myportal
         
-        password = InternetPassword(url: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10040")!)
-        println(password.username)
-        println(password.password)*/
+        caasService = CAASService(baseURL: NSURL(string: "http://macm-master-cf06.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
+        
         
         if caasService == nil {
             assertionFailure("Wrong parameters")
