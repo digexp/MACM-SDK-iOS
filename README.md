@@ -7,6 +7,32 @@ CAASObjC is an API written in Objective-C to access a MACM (Mobile Application C
 - iOS 8.0+
 - XCode 6.3
 
+## Install [CocoaPods](http://cocoapods.org)
+
+You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:
+```
+sudo gem install cocoapods 
+```
+
+## Running the sample
+
+The repository comes with a sample, the CAASExample project. To run this sample, you need:
+
+- clone the repository:
+```
+git clone https://github.com/digexp/MACM-SDK-iOS.git 
+```
+
+- Specify the tenant in AppDelegate.swift around line 57
+```objective-c
+caasService = CAASService(baseURL: NSURL(string: "https://macmbeta.com")!,contextRoot:"wps",tenant:"YOUR TENANT")
+```
+- Install the pods
+```
+pod install
+```
+
+
 ## Using in your project
 
 You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:

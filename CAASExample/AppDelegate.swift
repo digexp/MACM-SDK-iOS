@@ -51,14 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dataController = DataController(modelName: "CAASExampleModel")
         DataController.removeStore()
         
+
+        // PLEASE CHANGE THE TENANT HERE!!!!
         
-        //http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039/wps/myportal
-        
-        //caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
-        
-        //http://macm-master-cf06.rtp.raleigh.ibm.com:10039/wps/myportal
-        
-        caasService = CAASService(baseURL: NSURL(string: "http://macm-master-cf06.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
+        caasService = CAASService(baseURL: NSURL(string: "https://macmbeta.com")!,contextRoot:"wps",tenant:"m4cmr0ckz")
         
         
         if caasService == nil {
