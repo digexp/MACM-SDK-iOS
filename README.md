@@ -22,7 +22,6 @@ The repository comes with a sample, the CAASExample project. To run this sample,
 ```
 git clone https://github.com/digexp/MACM-SDK-iOS.git 
 ```
-
 - Specify the tenant in AppDelegate.swift around line 57
 ```objective-c
 caasService = CAASService(baseURL: NSURL(string: "https://macmbeta.com")!,contextRoot:"wps",tenant:"YOUR TENANT")
