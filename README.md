@@ -7,7 +7,7 @@ CAASObjC is an API written in Objective-C to access a MACM (Mobile Application C
 - iOS 8.0+
 - XCode 6.3
 
-## Install [CocoaPods](http://cocoapods.org)
+## Install CocoaPods
 
 You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:
 ```
