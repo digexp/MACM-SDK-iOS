@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //http://macm-master-cf06.rtp.raleigh.ibm.com:10039/wps/myportal
         
-        caasService = CAASService(baseURL: NSURL(string: "http://macm-master-cf06.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
+        caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
         
         if caasService == nil {
             assertionFailure("Wrong parameters")

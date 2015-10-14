@@ -78,40 +78,21 @@ public class DataController:NSObject {
     
     } ()
     
-    private var _mainUIPersistentStoreCoordinator:NSPersistentStoreCoordinator!
     
-    public var mainUIPersistentStoreCoordinator:NSPersistentStoreCoordinator {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.onceToken) {
-            self._mainUIPersistentStoreCoordinator = self.createPersistentStoreCoordinator()
-        }
-        
-        return _mainUIPersistentStoreCoordinator
+    public lazy var mainUIPersistentStoreCoordinator:NSPersistentStoreCoordinator = {
+            return self.createPersistentStoreCoordinator()
     
-    }
+    }()
 
-    private var _writerPersistentStoreCoordinator:NSPersistentStoreCoordinator!
-    
-    public var writerPersistentStoreCoordinator:NSPersistentStoreCoordinator {
+    public lazy var writerPersistentStoreCoordinator:NSPersistentStoreCoordinator = {
         
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-        }
+        return self.createPersistentStoreCoordinator()
         
-        dispatch_once(&Static.onceToken) {
-            self._writerPersistentStoreCoordinator = self.createPersistentStoreCoordinator()
-        }
-        
-        return _writerPersistentStoreCoordinator
-        
-    }
+    }()
     
     private func createPersistentStoreCoordinator() -> NSPersistentStoreCoordinator {
         
-        let dir = self.dynamicType.applicationLibraryDirectory().path?.stringByAppendingPathComponent("sql")
+        let dir = self.dynamicType.applicationLibraryDirectory().path?.NS.stringByAppendingPathComponent("sql")
         
         let fileManager = NSFileManager.defaultManager()
 
@@ -123,7 +104,7 @@ public class DataController:NSObject {
                 self.dynamicType.addSkipBackupAttributeToItemAtPath(dir!)
             }
             
-            let storePath = self.dynamicType.applicationLibraryDirectory().path?.stringByAppendingPathComponent("sql/WR.sqlite")
+            let storePath = self.dynamicType.applicationLibraryDirectory().path?.NS.stringByAppendingPathComponent("sql/WR.sqlite")
             
             let storeUrl = NSURL(fileURLWithPath: storePath!)
             
@@ -139,7 +120,7 @@ public class DataController:NSObject {
     }
     
     static public func removeStore() {
-        let dir = applicationLibraryDirectory().path?.stringByAppendingPathComponent("sql")
+        let dir = applicationLibraryDirectory().path?.NS.stringByAppendingPathComponent("sql")
         let fileManager = NSFileManager.defaultManager()
         do {
             if fileManager.fileExistsAtPath(dir!) {
@@ -184,5 +165,13 @@ extension DataController {
     }
     
 
+    
+}
+
+extension String {
+    
+    var NS:NSString {
+        return NSString(string: self)
+    }
     
 }
