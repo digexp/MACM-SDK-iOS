@@ -24,7 +24,7 @@ import UIKit
 import CoreData
 import CAASObjC
 
-private let wcmPath = "MACM Default Application/Content Types/Book"
+private let wcmPath = "Book App/Content Types/Book"
 
 class BooksViewController: UITableViewController {
     
@@ -39,9 +39,11 @@ class BooksViewController: UITableViewController {
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: dataController.mainContext, sectionNameKeyPath: nil, cacheName: nil)
         frc.delegate = self
-        var error:NSError?
-        if !frc.performFetch(&error) {
-            assertionFailure("perform fetch error \(error)")
+        
+        do {
+            try frc.performFetch()
+        } catch {
+            fatalError("Core Data Error \(error)")
         }
         
         return frc
@@ -90,7 +92,7 @@ class BooksViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        let sectionInfo = self.fetchedResultController.sections![section] as! NSFetchedResultsSectionInfo
+        let sectionInfo = self.fetchedResultController.sections![section] as NSFetchedResultsSectionInfo
         
         return sectionInfo.numberOfObjects
     }
@@ -114,7 +116,7 @@ class BooksViewController: UITableViewController {
         
         let book: AnyObject = self.fetchedResultController.objectAtIndexPath(indexPath)
         
-        self.performSegueWithIdentifier("ShowDetailBookSegID", sender: book)
+        self.performSegueWithIdentifier(.ShowDetailBook, sender: book)
         collapseDetailViewController = false
     }
     
@@ -126,9 +128,13 @@ class BooksViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
-        let nc = segue.destinationViewController as! UINavigationController
-        let bookVC = nc.topViewController as! BookViewController
-        bookVC.book = sender as? Book
+        
+        switch segueIdentifierForSegue(segue) {
+        case .ShowDetailBook:
+            let nc = segue.destinationViewController as! UINavigationController
+            let bookVC = nc.topViewController as! BookViewController
+            bookVC.book = sender as? Book
+        }
         
     }
     
@@ -141,35 +147,9 @@ class BooksViewController: UITableViewController {
         
         self.refreshControl?.beginRefreshing()
         
-        /*
-        dataController.emptyDatabase()
-        caasService.cancelAllPendingRequests()
-        let contentItemsRequest = CAASContentItemsRequest(contentPath: wcmPath, completionBlock: { (requestResult) -> Void in
-        if (requestResult.error != nil) || (requestResult.httpStatusCode != 200) {
-        self.refreshControl?.endRefreshing()
-        AppDelegate.presentNetworkError(requestResult.error,httpStatusCode: requestResult.httpStatusCode)
-        } else if let contentItems = requestResult.contentItems as? [CAASContentItem] {
-        dataController.seedDatabaseWithBooks(contentItems)
-        self.refreshControl?.endRefreshing()
-        }
-        
-        })
-        */
-        
         dataController.emptyDatabase()
         caasService.cancelAllPendingRequests()
         self.getPage()
-        /*
-        caasService.silentSignInWithCompletionHandler { (error, httpStatusCode) -> Void in
-            if error != nil || !(200..<300).contains(httpStatusCode){
-                AppDelegate.presentSignInError(error, httpStatusCode: httpStatusCode)
-                self.refreshControl?.endRefreshing()
-            } else {
-
-                self.getPage()
-            }
-        }
-        */
         
     }
     
@@ -178,10 +158,10 @@ class BooksViewController: UITableViewController {
             if (requestResult.error != nil) || (requestResult.httpStatusCode != 200) {
                 self.refreshControl?.endRefreshing()
                 AppDelegate.presentNetworkError(requestResult.error,httpStatusCode: requestResult.httpStatusCode)
-            } else if let contentItems = requestResult.contentItems as? [CAASContentItem] {
+            } else if let contentItems = requestResult.contentItems  {
                 dataController.seedDatabaseWithBooks(contentItems)
                 if requestResult.morePages {
-                    self.getPage(pageNumber: pageNumber + 1)
+                    self.getPage(pageNumber + 1)
                     return
                 }
                 self.refreshControl?.endRefreshing()
@@ -250,12 +230,12 @@ extension BooksViewController: NSFetchedResultsControllerDelegate {
 
 extension BooksViewController : UISplitViewControllerDelegate {
     
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController!, ontoPrimaryViewController primaryViewController: UIViewController!) -> Bool {
+    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController: UIViewController, ontoPrimaryViewController primaryViewController: UIViewController) -> Bool {
         
         return collapseDetailViewController
     }
     
-    func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController!) -> UIViewController? {
+    func splitViewController(splitViewController: UISplitViewController, separateSecondaryViewControllerFromPrimaryViewController primaryViewController: UIViewController)-> UIViewController? {
         if let nc = primaryViewController as? UINavigationController{
             for vc in nc.viewControllers {
                 if let _ = vc.containedBook(){
@@ -286,4 +266,11 @@ extension UINavigationController {
     }
 }
 
-
+extension BooksViewController:SegueHandlerType {
+        
+    enum SegueIdentifier: String {
+        case ShowDetailBook = "ShowDetailBookSegID"
+    }
+        
+    
+}

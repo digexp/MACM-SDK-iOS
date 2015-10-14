@@ -52,12 +52,12 @@ typedef NS_ENUM(NSInteger, CAASContentItemWorkflowStatus) {
 /**
  The keywords of this content item
  */
-@property (nonatomic,readonly,strong,nullable) NSArray *keywords;
+@property (nonatomic,readonly,strong,nullable) NSArray<NSString *> *keywords;
 
 /**
  The categories of this content item
  */
-@property (nonatomic,readonly,strong,nullable) NSArray *categories;
+@property (nonatomic,readonly,strong,nullable) NSArray<NSString *> *categories;
 
 /**
  The project name of this content item
@@ -72,12 +72,12 @@ typedef NS_ENUM(NSInteger, CAASContentItemWorkflowStatus) {
 /**
  All the elements of this content item
  */
-@property (nonatomic,readonly,strong) NSDictionary *elements;
+@property (nonatomic,readonly,strong) NSDictionary<NSString *,id> *elements;
 
 /**
  All the properties of this content item
  */
-@property (nonatomic,readonly,strong) NSDictionary *properties;
+@property (nonatomic,readonly,strong) NSDictionary<NSString *,id> *properties;
 
 @end
 

@@ -51,11 +51,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         dataController = DataController(modelName: "CAASExampleModel")
         DataController.removeStore()
         
-
-        // PLEASE CHANGE THE TENANT HERE!!!!
         
-        caasService = CAASService(baseURL: NSURL(string: "https://macmbeta.com")!,contextRoot:"wps",tenant:"m4cmr0ckz")
+        //http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039/wps/myportal
         
+        //caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
+        
+        //http://macm-master-cf06.rtp.raleigh.ibm.com:10039/wps/myportal
+        
+        caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
         
         if caasService == nil {
             assertionFailure("Wrong parameters")
@@ -63,7 +66,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if !caasService!.isUserAlreadySignedIn() {
             let sb = UIStoryboard(name:"Main",bundle:nil)
-            let vc = sb.instantiateViewControllerWithIdentifier("CAASSignInID") as! UIViewController!
+            let vc = sb.instantiateViewControllerWithIdentifier("CAASSignInID") as UIViewController!
             self.window!.rootViewController = vc
         }
         
@@ -104,11 +107,11 @@ extension AppDelegate {
         let window = UIApplication.sharedApplication().keyWindow
         
         let sb = UIStoryboard(name:"Main",bundle:nil)
-        let vc = sb.instantiateInitialViewController()as! UIViewController
+        let vc = sb.instantiateInitialViewController()!
         
         UIView.transitionWithView(window!, duration: 0.5, options: .TransitionCrossDissolve, animations: { () -> Void in
             UIView.performWithoutAnimation({ () -> Void in
-                window!.rootViewController = vc;
+                window!.rootViewController = vc
             })
             }, completion: nil)
         
@@ -124,10 +127,10 @@ extension AppDelegate {
             if error != nil && error!.code == NSURLErrorCancelled {
                 message = NSLocalizedString("SignIn.Alert.WrongCredentials",comment:"Wrong credentials")
             } else if error != nil {
-                println("error \(error)")
+                print("error \(error)")
                 message = error!.localizedDescription
             } else {
-                println("HTTPS Status \(httpStatusCode)")
+                print("HTTPS Status \(httpStatusCode)")
                 message = NSHTTPURLResponse.localizedStringForStatusCode(httpStatusCode)
             }
         
@@ -149,10 +152,10 @@ extension AppDelegate {
             let message:String
             
             if error != nil {
-                println("error \(error)")
+                print("error \(error)")
                 message = error!.localizedDescription
             } else {
-                println("HTTPS Status \(httpStatusCode)")
+                print("HTTPS Status \(httpStatusCode)")
                 message = NSHTTPURLResponse.localizedStringForStatusCode(httpStatusCode)
             }
             

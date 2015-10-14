@@ -40,7 +40,7 @@ class EmptyViewController: UIViewController {
         view.backgroundColor = UIColor.whiteColor()
         
         let label = UILabel()
-        label.setTranslatesAutoresizingMaskIntoConstraints(false)
+        label.translatesAutoresizingMaskIntoConstraints = false
         label.text = emptyMessage
         label.textColor = UIColor(white: 0, alpha: 0.4)
         label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleHeadline)

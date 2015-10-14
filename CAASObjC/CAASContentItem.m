@@ -114,7 +114,7 @@
     
 }
 
-- (NSArray *) keywords {
+- (NSArray<NSString *> *) keywords {
     
     NSString *allkeywords = self.properties[@"keywords"];
     
@@ -126,7 +126,7 @@
     return nil;
 }
 
-- (NSArray *) categories {
+- (NSArray<NSString *> *) categories {
     
     NSString *allkeywords = self.properties[@"categories"];
     

@@ -78,7 +78,7 @@ typedef void (^CAASContentItemsCompletionBlock)(CAASContentItemsResult *requestR
 /**
  An array of sort descriptor objects
  */
-@property (nonatomic, strong,nullable) NSArray *sortDescriptors;
+@property (nonatomic, strong,nullable) NSArray<NSSortDescriptor *> *sortDescriptors;
 
 /**
  Page number of the request
@@ -93,12 +93,12 @@ typedef void (^CAASContentItemsCompletionBlock)(CAASContentItemsResult *requestR
 /**
  Specifies a collection of elements names that should be fetched. If this collection is empty, all properties will be retrieved
  */
-@property (nonatomic, strong,nullable) NSArray *elements;
+@property (nonatomic, strong,nullable) NSArray<NSString *> *elements;
 
 /**
  Specifies a collection of property names that should be fetched. If this collection is empty, all properties will be retrieved
  */
-@property (nonatomic, strong,nullable) NSArray *properties;
+@property (nonatomic, strong,nullable) NSArray<NSString *> *properties;
 
 /**
  Content item must be in the given workflow status. Support workflow status values are "Published", "Draft", "Expired", and "Deleted"
@@ -108,22 +108,22 @@ typedef void (^CAASContentItemsCompletionBlock)(CAASContentItemsResult *requestR
 /**
  content must have all of the given keywords
  */
-@property (nonatomic,strong,nullable) NSArray *allKeywords;
+@property (nonatomic,strong,nullable) NSArray<NSString *> *allKeywords;
 
 /**
  content must have at least one of the given keywords
  */
-@property (nonatomic,strong,nullable) NSArray *anyKeywords;
+@property (nonatomic,strong,nullable) NSArray<NSString *> *anyKeywords;
 
 /**
  list of categories. content must have all the given categories
  */
-@property (nonatomic,strong,nullable) NSArray *allCategories;
+@property (nonatomic,strong,nullable) NSArray<NSString *> *allCategories;
 
 /**
  list of categories. content must have at least one of the given categories
  */
-@property (nonatomic,strong,nullable) NSArray *anyCategories;
+@property (nonatomic,strong,nullable) NSArray<NSString *> *anyCategories;
 
 /**
  Content title must contain the given string

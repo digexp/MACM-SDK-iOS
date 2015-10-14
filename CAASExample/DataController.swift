@@ -78,76 +78,56 @@ public class DataController:NSObject {
     
     } ()
     
-    private var _mainUIPersistentStoreCoordinator:NSPersistentStoreCoordinator!
     
-    public var mainUIPersistentStoreCoordinator:NSPersistentStoreCoordinator {
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-        }
-        
-        dispatch_once(&Static.onceToken) {
-            self._mainUIPersistentStoreCoordinator = self.createPersistentStoreCoordinator()
-        }
-        
-        return _mainUIPersistentStoreCoordinator
+    public lazy var mainUIPersistentStoreCoordinator:NSPersistentStoreCoordinator = {
+            return self.createPersistentStoreCoordinator()
     
-    }
+    }()
 
-    private var _writerPersistentStoreCoordinator:NSPersistentStoreCoordinator!
-    
-    public var writerPersistentStoreCoordinator:NSPersistentStoreCoordinator {
+    public lazy var writerPersistentStoreCoordinator:NSPersistentStoreCoordinator = {
         
-        struct Static {
-            static var onceToken : dispatch_once_t = 0
-        }
+        return self.createPersistentStoreCoordinator()
         
-        dispatch_once(&Static.onceToken) {
-            self._writerPersistentStoreCoordinator = self.createPersistentStoreCoordinator()
-        }
-        
-        return _writerPersistentStoreCoordinator
-        
-    }
+    }()
     
     private func createPersistentStoreCoordinator() -> NSPersistentStoreCoordinator {
         
-        let dir = self.dynamicType.applicationLibraryDirectory().path?.stringByAppendingPathComponent("sql")
+        let dir = self.dynamicType.applicationLibraryDirectory().path?.NS.stringByAppendingPathComponent("sql")
         
         let fileManager = NSFileManager.defaultManager()
 
-        var error:NSError?
-        
-        var isDir:Bool
-        
         let exists = fileManager.fileExistsAtPath(dir!)
-        
-        if !exists {
-                fileManager.createDirectoryAtPath(dir!, withIntermediateDirectories: true, attributes: nil, error: &error)
-            self.dynamicType.addSkipBackupAttributeToItemAtPath(dir!)
+
+        do {
+            if !exists {
+                    try fileManager.createDirectoryAtPath(dir!, withIntermediateDirectories: true, attributes: nil)
+                self.dynamicType.addSkipBackupAttributeToItemAtPath(dir!)
+            }
+            
+            let storePath = self.dynamicType.applicationLibraryDirectory().path?.NS.stringByAppendingPathComponent("sql/WR.sqlite")
+            
+            let storeUrl = NSURL(fileURLWithPath: storePath!)
+            
+            let psc = NSPersistentStoreCoordinator(managedObjectModel: self.mom)
+            
+            try psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeUrl, options: nil)
+            return psc
+        } catch {
+            fatalError("Can't create Persistent Store Coordinator \(error)")
         }
         
-        let storePath = self.dynamicType.applicationLibraryDirectory().path?.stringByAppendingPathComponent("sql/WR.sqlite")
-        
-        let storeUrl = NSURL(fileURLWithPath: storePath!)
-        
-        let psc = NSPersistentStoreCoordinator(managedObjectModel: self.mom)
-        
-        let r = psc.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeUrl, options: nil, error: &error)
-        
-        if r == nil {
-            assertionFailure("Can't create Persistent Store Coordinator \(error)")
-        }
-        
-        return psc;
         
     }
     
     static public func removeStore() {
-        let dir = applicationLibraryDirectory().path?.stringByAppendingPathComponent("sql")
+        let dir = applicationLibraryDirectory().path?.NS.stringByAppendingPathComponent("sql")
         let fileManager = NSFileManager.defaultManager()
-        if fileManager.fileExistsAtPath(dir!) {
-            var error:NSError?
-            fileManager.removeItemAtPath(dir!, error: &error)
+        do {
+            if fileManager.fileExistsAtPath(dir!) {
+                try fileManager.removeItemAtPath(dir!)
+            }
+        } catch {
+            print("Can't remove the core data store")
         }
         
         
@@ -170,20 +150,28 @@ extension DataController {
     // Returns the URL to the application's Library directory.
     private static func applicationLibraryDirectory() -> NSURL {
         
-        return NSFileManager.defaultManager().URLsForDirectory(.LibraryDirectory, inDomains: .UserDomainMask).first! as! NSURL
+        return NSFileManager.defaultManager().URLsForDirectory(.LibraryDirectory, inDomains: .UserDomainMask).first! as NSURL
         
     }
     
-    private static func addSkipBackupAttributeToItemAtPath(path:String) -> Bool {
-        
-        var error:NSError?
-        
-        let url = NSURL.fileURLWithPath(path)
-        url!.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey, error: &error)
-        
-        return error == nil
+    private static func addSkipBackupAttributeToItemAtPath(path:String) {
+
+        do {
+            let url = NSURL.fileURLWithPath(path)
+            try url.setResourceValue(true, forKey: NSURLIsExcludedFromBackupKey)
+        } catch {
+            fatalError("Can't set exclude from backup atribute \(error)")
+        }
     }
     
 
+    
+}
+
+extension String {
+    
+    var NS:NSString {
+        return NSString(string: self)
+    }
     
 }

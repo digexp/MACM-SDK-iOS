@@ -48,7 +48,7 @@ extension DataController
                         continue
                     }
                     if let url = value as? NSURL {
-                        value = url.absoluteString!
+                        value = url.absoluteString
                     }
                     key = (key as! String).lowercaseString
                     book.setValue(value, forKey: key as! String)
@@ -57,9 +57,12 @@ extension DataController
                 book.title = properties["title"] as? String
                 
             }
-            var error:NSError?
-            if !moc.save(&error){
-                assertionFailure("Core Data Error \(error)")
+            do {
+                
+                try moc.save()
+                
+            } catch {
+                fatalError("Code Data Error \(error)")
             }
             
             dispatch_async(dispatch_get_main_queue(), { () -> Void in
@@ -72,16 +75,17 @@ extension DataController
         let fetchRequest = NSFetchRequest(entityName: NSStringFromClass(Book))
         let moc = self.writerContext
         moc.performBlock { () -> Void in
-            var error:NSError?
-            let mos = moc.executeFetchRequest(fetchRequest, error: &error)
-            assert(mos != nil, "Core Data error \(error)")
+            do {
+                let mos = try moc.executeFetchRequest(fetchRequest)
+                
+                for mo in mos as! [NSManagedObject]{
+                    moc.deleteObject(mo)
+                }
             
-            for mo in mos as! [NSManagedObject]{
-                moc.deleteObject(mo)
-            }
-            
-            if !moc.save(&error){
-                assertionFailure("Core Data error \(error)")
+                try moc.save()
+                
+            } catch {
+                fatalError("Core Data Error \(error)")
             }
             
             moc.reset()
