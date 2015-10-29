@@ -7,7 +7,7 @@ CAASObjC is an API written in Objective-C to access a MACM (Mobile Application C
 - iOS 8.0+
 - XCode 7.0.x
 
-## Install CocoaPods
+##<a name="cocoaInstall"></a> Install CocoaPods
 
 You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:
 ```
@@ -30,39 +30,10 @@ caasService = CAASService(baseURL: NSURL(string: "https://macmbeta.com")!,contex
 ```
 pod install
 ```
-
-
-## Install CocoaPods
-
-You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:
-```
-sudo gem install cocoapods 
-```
-
-## Running the sample
-
-The repository comes with a sample, the CAASExample project. To run this sample, you need:
-
-- clone the repository:
-```
-git clone https://github.com/digexp/MACM-SDK-iOS.git 
-```
-- Specify the tenant in AppDelegate.swift around line 57
-```objective-c
-caasService = CAASService(baseURL: NSURL(string: "https://macmbeta.com")!,contextRoot:"wps",tenant:"YOUR TENANT")
-```
-- Install the pods
-```
-pod install
-```
-
 
 ## Using in your project
 
-You need [CocoaPods](http://cocoapods.org) to install CAASObjC. To install CocoaPods, run the following command:
-```
-sudo gem install cocoapods 
-```
+You need [CocoaPods](http://cocoapods.org) to install CAASObjC. See [Install CocoaPods](#cocoaInstall) section for details.
 
 You then need to create a `Podfile` in the directory of your project file. Run the command:
 ```
@@ -98,11 +69,11 @@ end
 
 ### Authentication
 
-There are 2 ways to authenticate adressing two different use cases:
+There are 2 ways to authenticate addressing two different use cases:
 
 #### Authentication with the credentials of the application
 
-- The username and password are harcoded in the application: The following initializer should be used:
+- The username and password are hard-coded in the application: The following initializer should be used:
 
 ```objective-c
 CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:@"http://macm.com"] contextRoot:@"myContext" tenant:@"myTenant" username:@"admin" password:@"foobar"];
