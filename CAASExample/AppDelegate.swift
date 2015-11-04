@@ -32,6 +32,14 @@ let kDidReceiveOfferings="com.ibm.DidReceiveOfferings"
 
 let kDidReceiveBooks="com.ibm.DidReceiveBooks"
 
+// ************************************************
+//
+//
+// Specify your tenant in the global variable below
+// ************************************************
+
+let tenant:String = "PUT YOUR TENANT ID HERE !!!!!"
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -50,15 +58,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         dataController = DataController(modelName: "CAASExampleModel")
         DataController.removeStore()
-        
-        
-        //http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039/wps/myportal
-        
-        //caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
-        
-        //http://macm-master-cf06.rtp.raleigh.ibm.com:10039/wps/myportal
-        
-        caasService = CAASService(baseURL: NSURL(string: "http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039")!,contextRoot:"wps",tenant:nil)
+
+        caasService = CAASService(baseURL: NSURL(string: "https://macm-rendering.saas.ibmcloud.com")!,contextRoot:"wps",tenant:tenant)
         
         if caasService == nil {
             assertionFailure("Wrong parameters")
