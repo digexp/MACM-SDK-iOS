@@ -226,6 +226,6 @@ caasService.allowUntrustedCertificates = YES;
 
 ## Documentation references
 
-* [IBM Mobile Application Content Manager Knowledge Center](http://www-01.ibm.com/support/knowledgecenter/SSYK7J_8.5.0/macm/macm_rm.html)
+* [IBM Mobile Application Content Manager Knowledge Center](http://www-01.ibm.com/support/knowledgecenter/SSYK7J_8.5.0/macm/macm_rm.dita)
 
 
