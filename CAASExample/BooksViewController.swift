@@ -68,6 +68,7 @@ class BooksViewController: UITableViewController {
             var viewControllers = splitViewController!.viewControllers
             viewControllers[1] = createEmptyController()
             splitViewController!.viewControllers = viewControllers
+            splitViewController?.preferredDisplayMode = .PrimaryOverlay
         }
         
         
@@ -79,6 +80,12 @@ class BooksViewController: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        splitViewController?.preferredDisplayMode = .Automatic
+        
     }
     
     override func didReceiveMemoryWarning() {
