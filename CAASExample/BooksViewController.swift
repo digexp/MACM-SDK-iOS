@@ -62,6 +62,8 @@ class BooksViewController: UITableViewController {
         
         splitViewController!.delegate = self
         
+        self.navigationController?.title = self.navigationItem.title
+        
         if splitViewController!.collapsed == false {
             var viewControllers = splitViewController!.viewControllers
             viewControllers[1] = createEmptyController()
@@ -181,7 +183,9 @@ class BooksViewController: UITableViewController {
     
     private func createEmptyController() -> UIViewController {
         let empty = NSLocalizedString("No Book Selected", comment:"No Book Selected")
-        return EmptyViewController(emptyMessage: empty)
+        let vc = EmptyViewController(emptyMessage: empty)
+        let nc = UINavigationController(rootViewController: vc)
+        return nc
     }
     
 }

@@ -51,6 +51,10 @@ class EmptyViewController: UIViewController {
         
         self.view = view;
 
+        navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+        navigationItem.leftItemsSupplementBackButton = true
+        
+        
         
     }
 }
