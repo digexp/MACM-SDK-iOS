@@ -27,10 +27,7 @@ class PageViewController: UIPageViewController {
     var coverVC:CoverController!
     var pdfVC:PDFController!
     var children = [UIViewController]()
-    var book:Book!{
-        didSet {
-        }
-    }
+    var book:Book?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,13 +36,13 @@ class PageViewController: UIPageViewController {
         // Do any additional setup after loading the view.
         
         
-        if let _ = book.cover {
+        if let _ = book?.cover {
             self.coverVC = self.storyboard?.instantiateViewControllerWithIdentifier("CoverIDVC") as! CoverController
             self.coverVC.book = book
             self.children.append(self.coverVC)
         }
         
-        if let _ = book.pdf {
+        if let _ = book?.pdf {
             self.pdfVC = self.storyboard?.instantiateViewControllerWithIdentifier("PDFIDVC") as! PDFController
             self.pdfVC.book = book
             self.children.append(self.pdfVC)
