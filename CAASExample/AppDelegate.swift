@@ -38,7 +38,7 @@ let kDidReceiveBooks="com.ibm.DidReceiveBooks"
 // Specify your tenant in the global variable below
 // ************************************************
 
-let tenant:String = "PUT YOUR TENANT ID HERE !!!!!"
+let tenant:String = PUT YOUR TENANT ID HERE !!!!!
 
 
 @UIApplicationMain
