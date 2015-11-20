@@ -1,6 +1,6 @@
 # MACM iOS SDK
 
-CAASObjC is an API written in Objective-C to access a MACM (Mobile Application Content Manager)server.
+CAASObjC is an API written in Objective-C to access a MACM (Mobile Application Content Manager) server and fetch content from it.
 
 ## Requirements
 
@@ -22,16 +22,16 @@ The repository comes with a sample, the CAASExample project. To run this sample,
 ```
 git clone https://github.com/digexp/MACM-SDK-iOS.git 
 ```
-- Specify the tenant in AppDelegate.swift line 41
-```Swift
-let tenant:String = "PUT YOUR TENANT ID HERE !!!!!"
-```
 - Install the pods
 ```
 pod install
 ```
+- Specify the tenant in AppDelegate.swift line 41 (the sample won't compile without specifying the tenant):
+```Swift
+let tenant:String = "PUT YOUR TENANT ID HERE !!!!!"
+```
 
-## Using in your project
+## Using it for your own application
 
 You need [CocoaPods](http://cocoapods.org) to install CAASObjC. See [Install CocoaPods](#cocoaInstall) section for details.
 
