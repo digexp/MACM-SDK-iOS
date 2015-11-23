@@ -39,7 +39,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:CAASURL] contextRoot:@"wps" tenant:nil username:@"wpsadmin" password:@"wpsadmin"];
+    self.caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:CAASURL] contextRoot:@"wps" tenant:macmTenant username:@"wpsadmin" password:@"wpsadmin"];
 }
 
 - (void)tearDown {
@@ -106,7 +106,7 @@
     XCTestExpectation *resultExpectation = [self expectationWithDescription:@"Received a not found error"];
     
     
-    NSString *category = @"OOTB Content/MACM/books/novel";
+    NSString *category = @"Samples/macm/books/novel";
     CAASContentItemsRequest *request = [[CAASContentItemsRequest alloc] initWithContentPath:wcmBookPath completionBlock:^(CAASContentItemsResult *requestResult) {
         
         [resultExpectation fulfill];

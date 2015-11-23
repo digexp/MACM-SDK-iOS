@@ -40,7 +40,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:CAASURL] contextRoot:@"wps" tenant:nil];
+    self.caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:CAASURL] contextRoot:@"wps" tenant:macmTenant username:@"wpsadmin" password:@"wpsadmin"];
 }
 
 - (void)tearDown {
@@ -52,7 +52,7 @@
     // This is an example of a functional test case.
     XCTestExpectation *resultByPathExpectation = [self expectationWithDescription:@"Received a list by path"];
     
-    CAASContentItemsRequest *requestByPath = [[CAASContentItemsRequest alloc] initWithContentPath:@"MACM Default Application/Views/All" completionBlock:^(CAASContentItemsResult *requestResult) {
+    CAASContentItemsRequest *requestByPath = [[CAASContentItemsRequest alloc] initWithContentPath:@"Samples/Views/All" completionBlock:^(CAASContentItemsResult *requestResult) {
         
         [resultByPathExpectation fulfill];
         
@@ -93,7 +93,7 @@
     // This is an example of a functional test case.
     XCTestExpectation *resultByPathExpectation = [self expectationWithDescription:@"Received a list by path"];
     
-    CAASContentItemsRequest *requestByPath = [[CAASContentItemsRequest alloc] initWithContentPath:@"MACM Default Application/Views/All" completionBlock:^(CAASContentItemsResult *requestResult) {
+    CAASContentItemsRequest *requestByPath = [[CAASContentItemsRequest alloc] initWithContentPath:@"Samples/Views/All" completionBlock:^(CAASContentItemsResult *requestResult) {
         
         [resultByPathExpectation fulfill];
         

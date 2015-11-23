@@ -22,8 +22,11 @@
 
 #define TIMEOUT 60
 
-#define wcmBookPath  @"OOTB Content/Content Types/Book"
+//#define wcmBookPath  @"OOTB Content/Content Types/Book"
+#define wcmBookPath  @"Samples/Content Types/Book"
 
 //#define CAASURL @"http://patrick-daily-0509.rtp.raleigh.ibm.com:10039"
 
-#define CAASURL @"http://macm-mobile-nightly.rtp.raleigh.ibm.com:10039"
+#define CAASURL @"http://macm-daily-us.rtp.raleigh.ibm.com:10039"
+
+#define macmTenant @"macm1"

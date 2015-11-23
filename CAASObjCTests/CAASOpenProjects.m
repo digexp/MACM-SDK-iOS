@@ -26,7 +26,7 @@
 - (void)setUp {
     [super setUp];
     // Put setup code here. This method is called before the invocation of each test method in the class.
-    self.caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:CAASURL] contextRoot:@"wps" tenant:nil];
+    self.caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:CAASURL] contextRoot:@"wps" tenant:macmTenant username:@"wpsadmin" password:@"wpsadmin"];
 }
 
 - (void)tearDown {
@@ -45,7 +45,7 @@
         XCTAssertNil(requestResult.error);
         XCTAssertEqual(requestResult.httpStatusCode,200);
         
-        XCTAssertEqual(requestResult.contentItems.count,2);
+        XCTAssertTrue(requestResult.contentItems.count > 0);
         
         
     }];
