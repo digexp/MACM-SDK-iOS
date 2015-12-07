@@ -66,6 +66,15 @@ typedef void (^CAASContentItemCompletionBlock)(CAASContentItemResult *requestRes
 
 /**
  Path of the content item
+ 
+ The path parameter must match the path of a specific item, or match one of the following MACM system content item:
+ 
+ <lib_name>/Views/All: lists all content items in the addressed library
+ MACM System/Views/Open Projects: lists all projects that are in state active or pending
+ <lib_name>/Views/My Approvals: lists all content items in the current lib the current user can approve
+ <lib_name>/Content Types/<content_type_name>: lists all content items of the addressed type
+ where <lib_name> is the name of the content library and content_type_name the name of the content type.
+ 
  @see http://www-01.ibm.com/support/knowledgecenter/SSYK7J_8.5.0/macm/macm_rest_api_sys_cont_items.dita
  */
 @property (nonatomic,strong,readonly,nullable) NSString * contentPath;
