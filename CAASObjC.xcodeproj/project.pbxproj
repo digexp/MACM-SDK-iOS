@@ -48,6 +48,8 @@
 		7D9F567D1AB9E06500A95309 /* CAASContentItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D9F567B1AB9E06500A95309 /* CAASContentItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7D9F567E1AB9E06500A95309 /* CAASContentItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9F567C1AB9E06500A95309 /* CAASContentItem.m */; };
 		7D9F56801AB9EF1D00A95309 /* CAASContentItemPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D9F567F1AB9EF1D00A95309 /* CAASContentItemPrivate.h */; };
+		7DB27E4B1C107DBD00218FC7 /* CAASProperty.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB27E491C107DBD00218FC7 /* CAASProperty.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7DB27E4C1C107DBD00218FC7 /* CAASProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB27E4A1C107DBD00218FC7 /* CAASProperty.m */; };
 		7DB5749B1AB212FA0005FC00 /* CAASService.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DB574991AB212FA0005FC00 /* CAASService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7DB5749C1AB212FA0005FC00 /* CAASService.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DB5749A1AB212FA0005FC00 /* CAASService.m */; };
 		7DBA39FB1AC16CC000207450 /* CAASRequestResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 7DBA39F91AC16CC000207450 /* CAASRequestResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -118,6 +120,8 @@
 		7D9F567B1AB9E06500A95309 /* CAASContentItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAASContentItem.h; sourceTree = "<group>"; };
 		7D9F567C1AB9E06500A95309 /* CAASContentItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAASContentItem.m; sourceTree = "<group>"; };
 		7D9F567F1AB9EF1D00A95309 /* CAASContentItemPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAASContentItemPrivate.h; sourceTree = "<group>"; };
+		7DB27E491C107DBD00218FC7 /* CAASProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAASProperty.h; sourceTree = "<group>"; };
+		7DB27E4A1C107DBD00218FC7 /* CAASProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAASProperty.m; sourceTree = "<group>"; };
 		7DB574991AB212FA0005FC00 /* CAASService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAASService.h; sourceTree = "<group>"; };
 		7DB5749A1AB212FA0005FC00 /* CAASService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAASService.m; sourceTree = "<group>"; };
 		7DBA39F91AC16CC000207450 /* CAASRequestResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAASRequestResult.h; sourceTree = "<group>"; };
@@ -219,6 +223,8 @@
 		7DBAD7411AB212820060E56A /* CAASObjC */ = {
 			isa = PBXGroup;
 			children = (
+				7DB27E491C107DBD00218FC7 /* CAASProperty.h */,
+				7DB27E4A1C107DBD00218FC7 /* CAASProperty.m */,
 				7D685C051AF75E6E00927796 /* CAASAssetRequest.h */,
 				7D685C061AF75E6E00927796 /* CAASAssetRequest.m */,
 				7D685C071AF75E6E00927796 /* CAASAssetResult.h */,
@@ -328,6 +334,7 @@
 				7D685C0B1AF75E6E00927796 /* CAASAssetResult.h in Headers */,
 				7D561F161AC081E3002E32BB /* CAASRequest.h in Headers */,
 				7DBA3A001AC1A45600207450 /* CAASRequestPrivate.h in Headers */,
+				7DB27E4B1C107DBD00218FC7 /* CAASProperty.h in Headers */,
 				7D9F56801AB9EF1D00A95309 /* CAASContentItemPrivate.h in Headers */,
 				7DBAD7451AB212820060E56A /* CAASObjC.h in Headers */,
 				7D0DE1EA1AC985B700979157 /* CAASAssetResultPrivate.h in Headers */,
@@ -497,6 +504,7 @@
 				7D685C0C1AF75E6E00927796 /* CAASAssetResult.m in Sources */,
 				7DBA39FC1AC16CC000207450 /* CAASRequestResult.m in Sources */,
 				7D561F171AC081E3002E32BB /* CAASRequest.m in Sources */,
+				7DB27E4C1C107DBD00218FC7 /* CAASProperty.m in Sources */,
 				7DB5749C1AB212FA0005FC00 /* CAASService.m in Sources */,
 				7D96D3671AB825EA00CDE776 /* CAASSignInOperation.m in Sources */,
 				7D9F567E1AB9E06500A95309 /* CAASContentItem.m in Sources */,

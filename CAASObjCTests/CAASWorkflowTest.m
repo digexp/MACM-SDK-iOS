@@ -64,7 +64,7 @@
     }];
     
     requestByPath.workflowStatus = CAASContentItemWorkflowStatusDraft;
-    requestByPath.properties = @[@"id",@"title",@"keywords"];
+    requestByPath.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
     requestByPath.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     
     [self.caasService executeRequest:requestByPath];

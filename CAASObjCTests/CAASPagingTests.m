@@ -163,7 +163,7 @@
     request.pageSize = 50;
     request.pageNumber = 1;
     request.allKeywords = @[keyword1];
-    request.properties = @[@"id",@"title",@"keywords"];
+    request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
     request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     request.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"title" ascending:NO],[NSSortDescriptor sortDescriptorWithKey:@"author" ascending:YES]];
     [self.caasService executeRequest:request];

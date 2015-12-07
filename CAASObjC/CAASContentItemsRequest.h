@@ -72,6 +72,7 @@ typedef void (^CAASContentItemsCompletionBlock)(CAASContentItemsResult *requestR
 
 /**
  Path of the content items
+ @see http://www-01.ibm.com/support/knowledgecenter/SSYK7J_8.5.0/macm/macm_rest_api_sys_cont_items.dita
  */
 @property (nonatomic,strong,readonly,nullable) NSString *contentPath;
 

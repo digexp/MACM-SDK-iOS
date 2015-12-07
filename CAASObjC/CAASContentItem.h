@@ -48,6 +48,35 @@ typedef NS_ENUM(NSInteger, CAASContentItemWorkflowStatus) {
  */
 @property (nonatomic,readonly,strong,nullable) NSString *title;
 
+/**
+ * Return this content item's name
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *name;
+
+/**
+ * Return this content item's "contenttype" property
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *contentType;
+
+/**
+ * Return this content item's "authors" property
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *authors;
+
+/**
+ * Return this content item's "authTemplateId" property
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *authTemplateId;
+
+/**
+ * Return this content item's "authTemplateName" property
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *authTemplateName;
+
+/**
+* Return this content item's "authTemplateTitle" property
+*/
+@property (nonatomic,readonly,strong,nullable) NSString *authTemplateTitle;
 
 /**
  The keywords of this content item
@@ -67,7 +96,82 @@ typedef NS_ENUM(NSInteger, CAASContentItemWorkflowStatus) {
 /**
  The last modified date of this content item
  */
-@property (nonatomic,readonly,strong,nullable) NSDate *lastmodifieddate;
+@property (nonatomic,readonly,strong,nullable) NSDate *lastmodifiedDate;
+
+/**
+ The last creation date of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSDate *creationDate;
+
+/**
+ The expiry date of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSDate *expiryDate;
+
+/**
+ The publish date of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSDate *publishDate;
+
+/**
+ The creator of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *creator;
+
+/**
+ The last modifier of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *lastModifier;
+
+/**
+ The library id of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *libraryId;
+
+/**
+ The library name of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *libraryName;
+
+/**
+ The library title of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *libraryTitle;
+
+/**
+ The parent id of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *parentId;
+
+/**
+ The parent name of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *parentName;
+
+/**
+ The parent title of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *parentTitle;
+
+/**
+ The status of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *status;
+
+/**
+ The status id of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *statusId;
+
+/**
+ The current stage of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *currentStage;
+
+/**
+ The description of this content item
+ */
+@property (nonatomic,readonly,strong,nullable) NSString *contentItemDescription;
 
 /**
  All the elements of this content item

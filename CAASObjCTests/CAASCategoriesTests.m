@@ -126,7 +126,7 @@
     }];
     
     request.allCategories = @[category];
-    request.properties = @[@"categories"];
+    request.properties = @[CAASProperty.CATEGORIES];
     [self.caasService executeRequest:request];
     
     [self waitForExpectationsWithTimeout:TIMEOUT handler:^(NSError *error) {

@@ -85,7 +85,7 @@
         
     }];
     
-    request.properties = @[@"id",@"title",@"keywords"];
+    request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
     request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     request.sortDescriptors = descriptors;
     [self.caasService executeRequest:request];

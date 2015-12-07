@@ -22,6 +22,7 @@
 #import "CAASContentItem.h"
 #import "CAASContentItemPrivate.h"
 #import "CAASUtils.h"
+#import "CAASProperty.h"
 
 @implementation CAASContentItem
 
@@ -104,19 +105,55 @@
 
 - (NSString *) oid {
     
-    return self.properties[@"id"];
+    return self.properties[CAASProperty.OID];
+    
+}
+
+- (NSString *) name {
+    
+    return self.properties[CAASProperty.NAME];
     
 }
 
 - (NSString *) title {
     
-    return self.properties[@"title"];
+    return self.properties[CAASProperty.TITLE];
+    
+}
+
+- (NSString *) contentType {
+    
+    return self.properties[CAASProperty.CONTENT_TYPE];
+    
+}
+
+- (NSString *) authors {
+    
+    return self.properties[CAASProperty.AUTHORS];
+    
+}
+
+- (NSString *) authTemplateId {
+    
+    return self.properties[CAASProperty.AUTH_TEMPLATE_ID];
+    
+}
+
+- (NSString *) authTemplateName {
+    
+    return self.properties[CAASProperty.AUTH_TEMPLATE_NAME];
+    
+}
+
+- (NSString *) authTemplateTitle {
+    
+    return self.properties[CAASProperty.AUTH_TEMPLATE_TITLE];
     
 }
 
 - (NSArray<NSString *> *) keywords {
     
-    NSString *allkeywords = self.properties[@"keywords"];
+    NSString *allkeywords = self.properties[CAASProperty.KEYWORDS];
     
     if (allkeywords != nil){
         NSArray *keywords = [allkeywords componentsSeparatedByString:@","];
@@ -128,7 +165,7 @@
 
 - (NSArray<NSString *> *) categories {
     
-    NSString *allkeywords = self.properties[@"categories"];
+    NSString *allkeywords = self.properties[CAASProperty.CATEGORIES];
     
     if (allkeywords != nil){
         NSArray *keywords = [allkeywords componentsSeparatedByString:@","];
@@ -138,9 +175,9 @@
     return nil;
 }
 
-- (NSDate *) lastmodifieddate {
+- (NSDate *) lastmodifiedDate {
     
-    NSString *lastmodifieddate = self.properties[@"lastmodifieddate"];
+    NSString *lastmodifieddate = self.properties[CAASProperty.LAST_MODIFIED_DATE];
     
     if (lastmodifieddate != nil){
         NSTimeInterval timestamp = [lastmodifieddate doubleValue];
@@ -151,6 +188,127 @@
     return nil;
     
 }
+
+- (NSDate *) creationDate {
+    
+    NSString *creationdate = self.properties[CAASProperty.CREATION_DATE];
+    
+    if (creationdate != nil){
+        NSTimeInterval timestamp = [creationdate doubleValue];
+        NSDate *d = [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
+        return d;
+    }
+    
+    return nil;
+    
+}
+
+- (NSDate *) expiryDate {
+    
+    NSString *expiryDate = self.properties[CAASProperty.EXPIRY_DATE];
+    
+    if (expiryDate != nil){
+        NSTimeInterval timestamp = [expiryDate doubleValue];
+        NSDate *d = [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
+        return d;
+    }
+    
+    return nil;
+    
+}
+
+- (NSDate *) publishDate {
+    
+    NSString *publishDate = self.properties[CAASProperty.PUBLISH_DATE];
+    
+    if (publishDate != nil){
+        NSTimeInterval timestamp = [publishDate doubleValue];
+        NSDate *d = [NSDate dateWithTimeIntervalSince1970:timestamp / 1000];
+        return d;
+    }
+    
+    return nil;
+    
+}
+
+- (NSString *) creator {
+    
+    return self.properties[CAASProperty.CREATOR];
+    
+}
+
+
+- (NSString *) currentStage {
+    
+    return self.properties[CAASProperty.CURRENT_STAGE];
+    
+}
+
+
+- (NSString *) contentItemDescription {
+    
+    return self.properties[CAASProperty.DESCRIPTION];
+    
+}
+
+
+- (NSString *) lastModifier {
+    
+    return self.properties[CAASProperty.LAST_MODIFIER];
+    
+}
+
+- (NSString *) libraryId {
+    
+    return self.properties[CAASProperty.LIBRARY_ID];
+    
+}
+
+
+- (NSString *) libraryName {
+    
+    return self.properties[CAASProperty.LIBRARY_NAME];
+    
+}
+
+- (NSString *) libraryTitle {
+    
+    return self.properties[CAASProperty.LIBRARY_TITLE];
+    
+}
+
+- (NSString *) parentId {
+    
+    return self.properties[CAASProperty.PARENT_ID];
+    
+}
+
+
+- (NSString *) parentName {
+    
+    return self.properties[CAASProperty.PARENT_NAME];
+    
+}
+
+- (NSString *) parentTitle {
+    
+    return self.properties[CAASProperty.PARENT_TITLE];
+    
+}
+
+- (NSString *) status {
+    
+    return self.properties[CAASProperty.STATUS];
+    
+}
+
+- (NSString *) statusId {
+    
+    return self.properties[CAASProperty.STATUS_ID];
+    
+}
+
+
 - (NSString *) description {
     
     NSMutableString *des = [NSMutableString new];

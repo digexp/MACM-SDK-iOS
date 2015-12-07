@@ -67,7 +67,7 @@
         
     }];
     
-    requestContentItem.properties = @[@"id",@"title",@"keywords"];
+    requestContentItem.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
     requestContentItem.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     [self.caasService executeRequest:requestContentItem];
     

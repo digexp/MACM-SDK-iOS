@@ -64,7 +64,10 @@ typedef void (^CAASContentItemCompletionBlock)(CAASContentItemResult *requestRes
 /// The object id of the content item
 @property (nonatomic,strong,readonly,nullable) NSString * oid;
 
-/// The object path of the content item
+/**
+ Path of the content item
+ @see http://www-01.ibm.com/support/knowledgecenter/SSYK7J_8.5.0/macm/macm_rest_api_sys_cont_items.dita
+ */
 @property (nonatomic,strong,readonly,nullable) NSString * contentPath;
 
 /**
@@ -74,6 +77,7 @@ typedef void (^CAASContentItemCompletionBlock)(CAASContentItemResult *requestRes
 
 /**
  Specifies a collection of property names that should be fetched. If this collection is empty, all properties will be retrieved
+ * See also: #CAASProperty.
  */
 @property (nonatomic, strong,nullable) NSArray<NSString *> * properties;
 

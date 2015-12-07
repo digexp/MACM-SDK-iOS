@@ -69,7 +69,7 @@
         
     }];
     
-    request.properties = @[@"id",@"title",@"keywords"];
+    request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.TITLE];
     request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     [self.caasService executeRequest:request];
     
@@ -93,7 +93,7 @@
         
     }];
     
-    requestById.properties = @[@"id",@"title",@"keywords"];
+    requestById.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.TITLE];
     requestById.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     [self.caasService executeRequest:requestById];
     
@@ -141,7 +141,7 @@
         
     }];
     
-    request.properties = @[@"id",@"title",@"keywords"];
+    request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.TITLE];
     request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     [self.caasService executeRequest:request];
     

@@ -33,6 +33,7 @@ FOUNDATION_EXPORT const unsigned char CAASObjCVersionString[];
 
 #import <CAASObjC/CAASService.h>
 #import <CAASObjC/CAASContentItem.h>
+#import <CAASObjC/CAASProperty.h>
 #import <CAASObjC/CAASRequest.h>
 #import <CAASObjC/CAASContentItemRequest.h>
 #import <CAASObjC/CAASContentItemsRequest.h>

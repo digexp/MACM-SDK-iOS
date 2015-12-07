@@ -121,7 +121,7 @@
         
         for (CAASContentItem *contentItem in [requestResult contentItems]){
             
-            NSString *keywords = contentItem.properties[@"keywords"];
+            NSString *keywords = contentItem.properties[CAASProperty.KEYWORDS];
             XCTAssertTrue([keywords containsString:keyword.lowercaseString]);
             
         }
@@ -155,7 +155,7 @@
         
         for (CAASContentItem *contentItem in [requestResult contentItems]){
             
-            NSString *keywords = contentItem.properties[@"keywords"];
+            NSString *keywords = contentItem.properties[CAASProperty.KEYWORDS];
             
             XCTAssertTrue(contentItem.elements.count == 0);
             
@@ -265,7 +265,7 @@
         
         for (CAASContentItem *contentItem in [requestResult contentItems]){
             
-            NSString *keywords = contentItem.properties[@"keywords"];
+            NSString *keywords = contentItem.properties[CAASProperty.KEYWORDS];
             XCTAssertTrue(contentItem.elements.count == 0);
             
             BOOL t1 = [keywords containsString:keyword1.lowercaseString];
@@ -278,7 +278,7 @@
     }];
     
     request.anyKeywords = @[keyword1,keyword2,keyword3];
-    request.properties = @[@"keywords"];
+    request.properties = @[CAASProperty.KEYWORDS];
     [self.caasService executeRequest:request];
     
     [self waitForExpectationsWithTimeout:TIMEOUT handler:^(NSError *error) {

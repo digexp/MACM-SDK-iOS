@@ -77,7 +77,7 @@
     }];
     
     requestByPath.projectName = @"Project1";
-    requestByPath.properties = @[@"id",@"title",@"keywords",@"status"];
+    requestByPath.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS,CAASProperty.STATUS];
     requestByPath.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     
     [self.caasService executeRequest:requestByPath];
@@ -118,7 +118,7 @@
     }];
     
     requestByPath.projectName = @"Project2";
-    requestByPath.properties = @[@"id",@"title",@"keywords",@"status"];
+    requestByPath.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS,CAASProperty.STATUS];
     requestByPath.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
     
     [self.caasService executeRequest:requestByPath];
