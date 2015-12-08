@@ -102,7 +102,7 @@ When the user provides its credentials, the following API checks these credentia
 #### Querying a list of content items by path
 
 ```objective-c
-CAASContentItemsRequest *request = [[CAASContentItemsRequest alloc] initWithContentPath:@"libraryName/path" completionBlock:^(CAASContentItemsResult *requestResult) {
+CAASContentItemsRequest *request = [[CAASContentItemsRequest alloc] initWithContentPath:@"Samples/Content Types/Book" completionBlock:^(CAASContentItemsResult *requestResult) {
 
     if (requestResult.httpStatusCode == 200) {
     }
@@ -135,7 +135,7 @@ request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
 #### Querying a single content item by path
 
 ```objective-c
-CAASContentItemRequest *request = [[CAASContentItemRequest alloc] initWithContentPath:@"myLibrary/myContentType/myObject"completionBlock:^(CAASContentItemResult *requestResult) {
+CAASContentItemRequest *request = [[CAASContentItemRequest alloc] initWithContentPath:@"Samples/some/content item path"completionBlock:^(CAASContentItemResult *requestResult) {
 
 
     if (requestResult.httpStatusCode == 200) {
