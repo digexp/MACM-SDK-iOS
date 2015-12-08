@@ -76,14 +76,14 @@ There are 2 ways to authenticate addressing two different use cases:
 - The username and password are hard-coded in the application: The following initializer should be used:
 
 ```objective-c
-CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:@"http://macm.com"] contextRoot:@"myContext" tenant:@"myTenant" username:@"admin" password:@"foobar"];
+CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:@"https://macm-rendering.saas.ibmcloud.com"] contextRoot:@"wps" tenant:@"myTenant" username:@"admin" password:@"foobar"];
 ```
 
 #### Authentication with the credentials of the end user
 
 - The users must sign in against a MACM server with their own credentials: The following initializer must be used:
 ```objective-c
-CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString::@"http://macm.com"] contextRoot:@"myContext" tenant:@"myTenant"];
+CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString::@"https://macm-rendering.saas.ibmcloud.com"] contextRoot:@"wps" tenant:@"myTenant"];
 ```
 When the user provides its credentials, the following API checks these credentials against the MACM server:
 ```objective-c
@@ -110,7 +110,7 @@ CAASContentItemsRequest *request = [[CAASContentItemsRequest alloc] initWithCont
 
 }];
 
-request.properties = @[@"id",@"title",@"keywords"];
+request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
 request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
 [self.caasService executeRequest:request];
 ```
@@ -127,7 +127,7 @@ CAASContentItemsRequest *request = [[CAASContentItemsRequest alloc] initWithOid:
 
 [self.caasService executeRequest:request];
 
-request.properties = @[@"id",@"title",@"keywords"];
+request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
 request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
 [self.caasService executeRequest:request];
 ```
@@ -144,7 +144,7 @@ CAASContentItemRequest *request = [[CAASContentItemRequest alloc] initWithConten
 
 }];
 
-request.properties = @[@"id",@"title",@"keywords"];
+request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
 request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
 [caasService executeRequest:request];
 ```
@@ -162,7 +162,7 @@ CAASContentItemRequest *request = [[CAASContentItemRequest alloc] initWithOid:@"
 
 }];
 
-request.properties = @[@"id",@"title",@"keywords"];
+request.properties = @[CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS];
 request.elements = @[@"author",@"cover",@"isbn",@"price",@"publish_date"];
 [caasService executeRequest:request];
 ```
@@ -217,7 +217,7 @@ property to `true`. It allows to test with self-signed certificates.
 
 ```objective-c
 // create the service that connects to the MACM instance
-CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:@"http://macm.com"] contextRoot:@"myContext" tenant:@"myTenant" username:@"admin" password:@"foobar"];
+CAASService *caasService = [[CAASService alloc] initWithBaseURL:[NSURL URLWithString:@"https://macm-rendering.saas.ibmcloud.com"] contextRoot:@"wps" tenant:@"myTenant" username:@"admin" password:@"foobar"];
 
 caasService.allowUntrustedCertificates = YES;
 
