@@ -129,7 +129,7 @@
     }];
     
     request.allKeywords = @[keyword];
-    request.properties = @[@"keywords"];
+    request.properties = @[CAASProperty.KEYWORDS];
     [self.caasService executeRequest:request];
     
     [self waitForExpectationsWithTimeout:TIMEOUT handler:^(NSError *error) {
@@ -166,7 +166,7 @@
     }];
     
     request.allKeywords = @[keyword];
-    request.properties = @[@"keywords"];
+    request.properties = @[CAASProperty.KEYWORDS];
     [self.caasService executeRequest:request];
     
     [self waitForExpectationsWithTimeout:TIMEOUT handler:^(NSError *error) {
@@ -206,7 +206,7 @@
     }];
     
     request.allKeywords = @[keyword1,keyword2];
-    request.properties = @[@"keywords"];
+    request.properties = @[CAASProperty.KEYWORDS];
     [self.caasService executeRequest:request];
     
     [self waitForExpectationsWithTimeout:TIMEOUT handler:^(NSError *error) {
@@ -236,7 +236,7 @@
     }];
     
     request.allKeywords = @[keyword1,keyword2,keyword3];
-    request.properties = @[@"keywords"];
+    request.properties = @[CAASProperty.KEYWORDS];
     [self.caasService executeRequest:request];
     
     [self waitForExpectationsWithTimeout:TIMEOUT handler:^(NSError *error) {
