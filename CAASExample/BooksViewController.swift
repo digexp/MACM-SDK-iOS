@@ -179,7 +179,7 @@ class BooksViewController: UITableViewController {
         })
         
         contentItemsRequest.elements = ["author","cover","isbn","price","publish_date","PDF"]
-        contentItemsRequest.properties = [CAASProperty.OID,CAASProperty.TITLE,CAASProperty.KEYWORDS]
+        contentItemsRequest.properties = [CAASProperty.OID(),CAASProperty.TITLE(),CAASProperty.KEYWORDS()]
         contentItemsRequest.pageSize = 10
         contentItemsRequest.pageNumber = pageNumber
         contentItemsRequest.sortDescriptors = [NSSortDescriptor(key: "title", ascending: true)]
