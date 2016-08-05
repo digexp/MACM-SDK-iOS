@@ -65,6 +65,31 @@ pod 'CAASObjC', :git => 'https://github.com/digexp/MACM-SDK-iOS.git'
 end
 ```
 
+#### Important
+
+If your custom app is working fine in the simulator, but fails on a real device, it might be due to some configuration changes needed in your build pipeline. This could happen, when using a remote service for building your native iOS app for distribution.
+
+The target configuration of that service might be different than the default targets *Release* and *Debug*. You might have to modify targets as shown in the following example to get your app working on a mobile device:
+
+```ruby
+...
+
+if [[ "$CONFIGURATION" == "Debug" ]]; then
+   install_framework "$BUILT_PRODUCTS_DIR/CAASObjC/CAASObjC.framework"
+fi
+if [[ "$CONFIGURATION" == "Distribution" ]]; then
+   install_framework "$BUILT_PRODUCTS_DIR/CAASObjC/CAASObjC.framework"
+fi
+if [[ "$CONFIGURATION" == "Release" ]]; then
+   install_framework "$BUILT_PRODUCTS_DIR/CAASObjC/CAASObjC.framework"
+fi
+
+...
+```
+
+In the above example, the *Distribution* target was added to make the app working on a mobile device that otherwise just worked in the simulator. Also, please make sure to check the documentation / troubleshooting information of the build service you are using for information about Pod files that make use of the *use_frameworks!* directive.
+
+
 ## Usage
 
 ### Authentication
